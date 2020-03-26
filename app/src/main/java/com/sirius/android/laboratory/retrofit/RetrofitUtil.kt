@@ -80,6 +80,12 @@ object RetrofitUtils {
         return retrofit().create(T::class.java)
     }
 
+    /**
+     * 注册接口
+     */
+    inline fun <reified T> registerDefault(baseUrl: String): T {
+        return defaultBuild(baseUrl).create(T::class.java)
+    }
 
 
 }
