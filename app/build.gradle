@@ -20,6 +20,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/project.properties'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'project.properties.txt'
+        exclude 'proguard-project.txt'
+        exclude 'project.properties'
+        exclude 'META-INF/INDEX.LIST'
+    }
+
+    configurations {
+        compile.exclude group: 'org.jetbrains.kotlinx', module: 'atomicfu-common'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -31,4 +58,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$converter_gson_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2_version"
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
 }
