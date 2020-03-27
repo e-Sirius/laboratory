@@ -1,4 +1,4 @@
-package com.sirius.android.laboratory.retrofit
+package com.sirius.android.laboratory.retrofit.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response
